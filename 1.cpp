@@ -2,9 +2,10 @@
 #include <vector>
 #include <algorithm>
 #include <iomanip>
+using namespace std;
 
 // Функция для вычисления суммы элементов массива
-float calculateSum(const std::vector<float>& arr) {
+float calculateSum(const vector<float>& arr) {
     float sum = 0;
     for (float num : arr) {
         sum += num;
@@ -13,7 +14,7 @@ float calculateSum(const std::vector<float>& arr) {
 }
 
 // Функция для вычисления среднего арифметического элементов массива
-float calculateAverage(const std::vector<float>& arr) {
+float calculateAverage(const vector<float>& arr) {
     if (arr.empty()) {
         return 0.0;
     }
@@ -23,32 +24,32 @@ float calculateAverage(const std::vector<float>& arr) {
 }
 
 // Функция для вывода результатов всех операций
-void printResults(const std::vector<float>& arr) {
+void printResults(const vector<float>& arr) {
 
     //std::cout << "Результаты всех операций: ";
     for (float num : arr) {
-        std::cout << std::fixed<<std::setprecision(3) << num << " ";
+        cout <<fixed<<setprecision(3) << num << " ";
     }
-    std::cout << std::endl;
+    cout << std::endl;
 }
 
 int main() {
     int n;
     //std::cout << "Введите размерность исходного массива: ";
-    std::cin >> n;
+    cin >> n;
 
-    std::vector<float> original_array(n);
+    vector<float> original_array(n);
 
     //std::cout << "Введите элементы массива через пробел: ";
     for (int i = 0; i < n; ++i) {
-        std::cin >> original_array[i];
+        cin >> original_array[i];
     }
 
-std::cout << original_array.size() << std::endl;
+cout << original_array.size() << endl;
 
    // std::cout << "Исходный массив: ";
     for (float num : original_array) {
-        std::cout <<std::fixed<<std::setprecision(3)<< num << " ";
+        cout <<fixed<<setprecision(3)<< num << " ";
     }
     std::cout << std::endl;
 
@@ -60,11 +61,11 @@ std::cout << original_array.size() << std::endl;
     original_array.push_back(static_cast<float>(average_of_elements));
 
     // Вывод массива после добавления элементов
-    //std::cout << "Массив после добавления суммы и среднего арифметического: ";
+    //cout << "Массив после добавления суммы и среднего арифметического: ";
     for (float num : original_array) {
-        std::cout <<std::fixed<<std::setprecision(3)<< num << " ";
+        cout <<fixed<<setprecision(3)<< num << " ";
     }
-    std::cout << std::endl;
+    cout << endl;
 
     // Выполнение дополнительного действия (вычитание из каждого числа наибольшего числа)
     float max_element = *std::max_element(original_array.begin(), original_array.end());
@@ -76,36 +77,36 @@ std::cout << original_array.size() << std::endl;
     // Вывод массива после выполнения дополнительного действия
     //std::cout << "Массив после вычитания наибольшего элемента: ";
     for (float num : original_array) {
-        std::cout <<std::fixed<<std::setprecision(3)<< num << " ";
+        cout <<fixed<<setprecision(3)<< num << " ";
     }
-    std::cout << std::endl;
+    cout << endl;
 
     // Меню для добавления или удаления элементов
     while (true) {
         int choice;
-        //std::cout << "Выберите действие (1 - добавить элемент, 2 - удалить последний элемент, 0 - выход): ";
-        std::cin >> choice;
+        //cout << "Выберите действие (1 - добавить элемент, 2 - удалить последний элемент, 0 - выход): ";
+        cin >> choice;
 
         if (choice == 0) {
             break;
         } else if (choice == 1) {
             float element_to_add;
-            //std::cout << "Введите элемент для добавления: ";
-            std::cin >> element_to_add;
+            //cout << "Введите элемент для добавления: ";
+            cin >> element_to_add;
             original_array.push_back(element_to_add);
         } else if (choice == 2) {
             if (!original_array.empty()) {
                 original_array.pop_back();
             } else {
-                std::cout << "Массив пуст. Невозможно удалить элемент." << std::endl;
+                cout << "Массив пуст. Невозможно удалить элемент." << std::endl;
             }
         }
        
        if  (choice == 1) {
-         std::cout << "+: " << original_array.size() << std::endl;  
+         cout << "+: " << original_array.size() << endl;  
        }
         if  (choice == 2) {
-         std::cout << "-: " << original_array.size() << std::endl;  
+         cout << "-: " << original_array.size() << endl;  
        }
 
 // Вывод результатов после действия
